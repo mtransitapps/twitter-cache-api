@@ -7,9 +7,10 @@ export default {
     console.log(`[MT]> request url - origin: ${requestUrl.origin}`);
     console.log(`[MT]> request url - pathname: ${requestUrl.pathname}`);
     console.log(`[MT]> request url - search: ${requestUrl.search}`);
-    const path = requestUrl.pathname;
-    const parts = path.split("/");
-    console.log(`[MT]> request url - parts[${parts.length}]: ${parts}`);
+    const search = requestUrl.search;
+    const pathname = requestUrl.pathname;
+    const pathnameParts = pathname.split("/");
+    console.log(`[MT]> request url - parts[${pathnameParts.length}]: ${pathnameParts}`);
 
 
     // https://twitter-cache-api.mtransit-apps.workers.dev/2/users/329993645/tweets?max_results=5&since_id=1962998976371949825&exclude=replies,retweets&tweet.fields=id,text,author_id,created_at,entities,lang&expansions=author_id,attachments.media_keys&media.fields=media_key,type,alt_text,url,preview_image_url,variants&user.fields=id,name,username,profile_image_url
@@ -20,24 +21,23 @@ export default {
     const supportedUsernames = ["montransit"];
     const supportedUserIds = ["329993645"]
     let apiUrl = ''
-    if (parts.length > 1 && parts[1] == "2") {
-      if (parts.length > 2 && parts[2] == "users") {
-        if (parts.length > 3) {
-          const part3 = parts[3];
-          if (part3 == "by") {
-            if (parts.length > 4 && parts[4] == "username") {
-              if (parts.length > 5) {
+    if (pathnameParts.length > 1 && pathnameParts[1] == "2") {
+      if (pathnameParts.length > 2 && pathnameParts[2] == "users") {
+        if (pathnameParts.length > 3) {
+          if (pathnameParts[3] == "by") {
+            if (pathnameParts.length > 4 && pathnameParts[4] == "username") {
+              if (pathnameParts.length > 5) {
                 const username = parts[5];
                 if (supportedUsernames.includes(username)) {
-                  apiUrl = baseHostUrl + path + search;
+                  apiUrl = baseHostUrl + pathname + search;
                 }
               }
             }
           } else {
-            const userId = part3;
-            if (parts.length > 4 && parts[4] == "tweets") {
+            const userId = pathnameParts[3];
+            if (pathnameParts.length > 4 && pathnameParts[4] == "tweets") {
               if (supportedUserIds.includes(userId)) {
-                apiUrl = baseHostUrl + path + search;
+                apiUrl = baseHostUrl + pathname + search;
               }
             }
           }
