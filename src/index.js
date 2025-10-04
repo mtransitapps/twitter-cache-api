@@ -58,9 +58,9 @@ export default {
     if (!response) {
       console.log(`[MT]> NO Cache hit for: ${request.url} (${apiUrl}).`);
       const token = env.MT_TWITTER_TOKEN;
-      console.log(`[MT]> token: '${token}'.`);
-      // console.log(`[MT]> token: *** (${token.length}).`);
-      const apiRequest = new Request(apiUrlWithSecret, {
+      // console.log(`[MT]> token: '${token}'.`);
+      console.log(`[MT]> token: *** (${token.length}).`);
+      const apiRequest = new Request(apiUrl, {
         headers: { 
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
