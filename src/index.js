@@ -28,7 +28,7 @@ export default {
             if (parts.length > 4 && parts[4] == "username") {
               if (parts.length > 5) {
                 const username = parts[5];
-                if (supportedUsernames.contains(username)) {
+                if (supportedUsernames.includes(username)) {
                   apiUrl = baseHostUrl + path + search;
                 }
               }
@@ -36,7 +36,7 @@ export default {
           } else {
             const userId = part3;
             if (parts.length > 4 && parts[4] == "tweets") {
-              if (supportedUserIds.contains(userId)) {
+              if (supportedUserIds.includes(userId)) {
                 apiUrl = baseHostUrl + path + search;
               }
             }
