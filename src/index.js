@@ -1,16 +1,16 @@
 export default {
   async fetch(request, env, ctx) {
-    console.log(`[MT]> request url: ${request.url}`);
+    console.log(`[MT]> request url: '${request.url}'.`);
 
     const requestUrl = new URL(request.url);
-    // console.log(`[MT]> request url - host: ${requestUrl.host}`);
-    // console.log(`[MT]> request url - origin: ${requestUrl.origin}`);
-    console.log(`[MT]> request url > pathname: ${requestUrl.pathname}`);
-    console.log(`[MT]> request url > search: ${requestUrl.search}`);
+    // console.log(`[MT]> request url - host: '${requestUrl.host}'.`);
+    // console.log(`[MT]> request url - origin: '${requestUrl.origin}'.`);
+    console.log(`[MT]> request url > search: '${requestUrl.search}'.`);
+    console.log(`[MT]> request url > pathname: '${requestUrl.pathname}'.`);
     const search = requestUrl.search;
     const pathname = requestUrl.pathname;
     const pathnameParts = pathname.split("/");
-    console.log(`[MT]> request url > pathname parts[${pathnameParts.length}]: ${pathnameParts}`);
+    console.log(`[MT]> request url > pathname parts[${pathnameParts.length}]: '${pathnameParts}'.`);
 
     const supportedUsernames = [];
     const supportedUserIds = [];
@@ -115,7 +115,8 @@ export default {
             const userId = pathnameParts[3];
             if (pathnameParts.length > 4 && pathnameParts[4] == "tweets") {
               if (supportedUserIds.includes(userId)) {
-                apiUrl = baseHostUrl + pathname + search;
+                const maxResult = "&max_results=7";
+                apiUrl = baseHostUrl + pathname + search + maxResult;
               }
             }
           }
