@@ -105,7 +105,7 @@ export default {
           if (pathnameParts[3] == "by") {
             if (pathnameParts.length > 4 && pathnameParts[4] == "username") {
               if (pathnameParts.length > 5) {
-                const username = parts[5];
+                const username = pathnameParts[5];
                 if (supportedUsernames.includes(username)) {
                   apiUrl = baseHostUrl + pathname + search;
                 }
