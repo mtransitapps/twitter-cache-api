@@ -2,7 +2,7 @@ const DEBUG_LOGS_ENABLED = false;
 
 const logDebug = (message) => {
   if (!DEBUG_LOGS_ENABLED) return;
-  logDebug(message);
+  console.log(message);
 };
 
 const log = (message) => {
