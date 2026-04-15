@@ -1,4 +1,8 @@
-import { supportedUserIds, supportedUsernames } from "./supported-configs.js";
+import {
+  hasSupportedUserId,
+  hasSupportedUsername,
+  supportedUsers,
+} from "./supported-configs.js";
 
 const DEBUG_LOGS_ENABLED = false;
 
@@ -25,8 +29,8 @@ export default {
     const pathnameParts = pathname.split("/");
     logDebug(`[MT]> request url > pathname parts[${pathnameParts.length}]: '${pathnameParts}'.`);
 
-    logDebug(`[MT]> supported usernames: ${supportedUsernames.length}`);
-    logDebug(`[MT]> supported user IDs: ${supportedUserIds.length}`);
+    logDebug(`[MT]> supported usernames: ${supportedUsers.length}`);
+    logDebug(`[MT]> supported user IDs: ${supportedUsers.length}`);
 
     // 2/users/by/username/{username}
     // 2/users/{id}/tweets
@@ -39,7 +43,7 @@ export default {
             if (pathnameParts.length > 4 && pathnameParts[4] == "username") {
               if (pathnameParts.length > 5) {
                 const username = pathnameParts[5];
-                if (supportedUsernames.includes(username)) {
+                if (hasSupportedUsername(username)) {
                   apiUrl = baseHostUrl + pathname + search;
                 }
               }
@@ -47,7 +51,7 @@ export default {
           } else {
             const userId = pathnameParts[3];
             if (pathnameParts.length > 4 && pathnameParts[4] == "tweets") {
-              if (supportedUserIds.includes(userId)) {
+              if (hasSupportedUserId(userId)) {
                 const maxResult = "&max_results=7";
                 apiUrl = baseHostUrl + pathname + search + maxResult;
               }
