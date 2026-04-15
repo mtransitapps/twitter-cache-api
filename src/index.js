@@ -1,16 +1,27 @@
+const DEBUG_LOGS_ENABLED = false;
+
+const logDebug = (message) => {
+  if (!DEBUG_LOGS_ENABLED) return;
+  logDebug(message);
+};
+
+const log = (message) => {
+  logDebug(message);
+};
+
 export default {
   async fetch(request, env, ctx) {
-    console.log(`[MT]> request url: '${request.url}'.`);
+    logDebug(`[MT]> request url: '${request.url}'.`);
 
     const requestUrl = new URL(request.url);
-    // console.log(`[MT]> request url - host: '${requestUrl.host}'.`);
-    // console.log(`[MT]> request url - origin: '${requestUrl.origin}'.`);
-    console.log(`[MT]> request url > search: '${requestUrl.search}'.`);
-    console.log(`[MT]> request url > pathname: '${requestUrl.pathname}'.`);
+    // logDebug(`[MT]> request url - host: '${requestUrl.host}'.`);
+    // logDebug(`[MT]> request url - origin: '${requestUrl.origin}'.`);
+    logDebug(`[MT]> request url > search: '${requestUrl.search}'.`);
+    logDebug(`[MT]> request url > pathname: '${requestUrl.pathname}'.`);
     const search = requestUrl.search;
     const pathname = requestUrl.pathname;
     const pathnameParts = pathname.split("/");
-    console.log(`[MT]> request url > pathname parts[${pathnameParts.length}]: '${pathnameParts}'.`);
+    logDebug(`[MT]> request url > pathname parts[${pathnameParts.length}]: '${pathnameParts}'.`);
 
     const supportedUsernames = [];
     const supportedUserIds = [];
@@ -92,8 +103,8 @@ export default {
     // United States
     supportedUsernames.push("ancpeoplemover"); supportedUserIds.push("199002356");
     supportedUsernames.push("ctranvancouver"); supportedUserIds.push("260347897");
-    console.log(`[MT]> supported usernames: ${supportedUsernames.length}`);
-    console.log(`[MT]> supported user IDs: ${supportedUserIds.length}`);
+    logDebug(`[MT]> supported usernames: ${supportedUsernames.length}`);
+    logDebug(`[MT]> supported user IDs: ${supportedUserIds.length}`);
 
     // 2/users/by/username/{username}
     // 2/users/{id}/tweets
@@ -123,7 +134,7 @@ export default {
         }
       }
     }
-    console.log(`[MT]> apiUrl: '${apiUrl}'`);
+    logDebug(`[MT]> apiUrl: '${apiUrl}'`);
     if (apiUrl.length == 0) {
       return new Response('404 not found', {
         status: 404,
@@ -135,7 +146,7 @@ export default {
     const cache = caches.default;
     let response = await cache.match(cacheKey);
     if (!response) {
-      console.log(`[MT]> NO Cache hit for: ${request.url} (${apiUrl}).`);
+      log(`[MT]> NO Cache hit for: ${request.url} (${apiUrl}).`);
       const token = env.MT_TWITTER_TOKEN;
       const apiRequest = new Request(apiUrl, {
         headers: { 
@@ -143,19 +154,19 @@ export default {
           'Content-Type': 'application/json'
         }
       });
-      console.log(`[MT]> Fetching from '${apiUrl})'...`);
+      logDebug(`[MT]> Fetching from '${apiUrl})'...`);
       response = await fetch(apiRequest);
-      console.log(`[MT]> Fetching from '${apiUrl})'... DONE`);
-      console.log(`[MT]> Response.headers: ${response.headers}.`);
-      console.log(`[MT]> Response.status: ${response.status}.`);
+      log(`[MT]> Fetching from '${apiUrl})'... DONE`);
+      logDebug(`[MT]> Response.headers: ${response.headers}.`);
+      logDebug(`[MT]> Response.status: ${response.status}.`);
       if (response.status == 200) {
         response = new Response(response.body);
         response.headers.append("Cache-Control", "s-maxage=10800"); // 3 hours
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
-        console.log(`[MT]> Cache saved for: ${request.url} (${apiUrl}).`);
+        log(`[MT]> Cache saved for: ${request.url} (${apiUrl}).`);
       }
     } else {
-      console.log(`[MT]> Cache hit for: ${request.url} (${apiUrl}).`);
+      log(`[MT]> Cache hit for: ${request.url} (${apiUrl}).`);
     }
     return response;
   }
