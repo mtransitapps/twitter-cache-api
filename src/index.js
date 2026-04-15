@@ -6,7 +6,7 @@ const logDebug = (message) => {
 };
 
 const log = (message) => {
-  logDebug(message);
+  console.log(message);
 };
 
 export default {
