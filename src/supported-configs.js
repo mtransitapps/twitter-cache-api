@@ -79,14 +79,14 @@ export const supportedUsers = [
   { username: "ctranvancouver", id: "260347897" },
 ];
 
-const supportedUsersByUsername = Object.fromEntries(
-  supportedUsers.map(({ username, id }) => [username, id]),
+const supportedUsernames = new Set(
+  supportedUsers.map(({ username }) => username),
 );
-const supportedUsersById = Object.fromEntries(
-  supportedUsers.map(({ username, id }) => [id, username]),
+const supportedUserIds = new Set(
+  supportedUsers.map(({ id }) => id),
 );
 
 export const hasSupportedUsername = (username) =>
-  Object.hasOwn(supportedUsersByUsername, username);
+  supportedUsernames.has(username);
 export const hasSupportedUserId = (id) =>
-  Object.hasOwn(supportedUsersById, id);
+  supportedUserIds.has(id);
