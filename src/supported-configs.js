@@ -1,0 +1,92 @@
+export const supportedUsers = [
+  // main app
+  { username: "montransit", id: "329993645" },
+  // Canada
+  { username: "AirdrieTransit", id: "216814398" },
+  { username: "allo_exo", id: "245789900" },
+  { username: "BCTransit", id: "67042447" },
+  { username: "BikeShareTO", id: "168487515" },
+  { username: "BIXImontreal", id: "20085288" },
+  { username: "BramptonTransit", id: "124497831" },
+  { username: "BurlONTransit", id: "740628438093029376" },
+  { username: "calgarytransit", id: "26782762" },
+  { username: "Durham_Transit", id: "844085900" },
+  { username: "exo11_VH", id: "478973820" },
+  { username: "exo12_SJ", id: "1580564522" },
+  { username: "exo13_SH", id: "479698184" },
+  { username: "exo14_CA", id: "479694540" },
+  { username: "exo15_MA", id: "2328966667" },
+  { username: "exo_Nord", id: "123243009" },
+  { username: "exo_Sud", id: "1577708024" },
+  { username: "GOtransit", id: "52188923" },
+  { username: "GOtransitFR", id: "1857893034" },
+  { username: "GOtransitBR", id: "720957373192474626" },
+  { username: "GOtransitKT", id: "720954919319166976" },
+  { username: "GOtransitLE", id: "720947428426428416" },
+  { username: "GOtransitLW", id: "720950349373251585" },
+  { username: "GOtransitMI", id: "720959237577445376" },
+  { username: "GOtransitRH", id: "720963505780846593" },
+  { username: "GOtransitST", id: "743842536930873344" },
+  { username: "GRT_ROW", id: "246370991" },
+  { username: "guelphtransit", id: "30260432" },
+  { username: "hfxtransit", id: "389593324" },
+  { username: "hsr", id: "753610052892844032" },
+  { username: "KingstonTransit", id: "179762980" },
+  { username: "LTCLdnOnt", id: "925424715900116992" },
+  { username: "MetrobusTransit", id: "938855094" },
+  { username: "miltontransit", id: "542120362" },
+  { username: "mobi_bikes", id: "733739411020505088" },
+  { username: "MiWayHelps", id: "573908194" },
+  { username: "NiagaraTransit", id: "1382761596" },
+  { username: "oakvilletransit", id: "540084573" },
+  { username: "OC_Transpo", id: "126447030" },
+  { username: "OC_TranspoAide", id: "444791191" },
+  { username: "OC_TranspoHelps", id: "376835873" },
+  { username: "Orleans_Express", id: "418807540" },
+  { username: "REMgrandmtl", id: "917832911751143430" },
+  { username: "REM_infoservice", id: "1630300222961201153" },
+  { username: "roamtransit", id: "2569916766" },
+  { username: "RTCQuebec", id: "253271006" },
+  { username: "STLevis", id: "151572595" },
+  { username: "stminfo", id: "54692326" },
+  { username: "stm_Bleue", id: "1465203679" },
+  { username: "stm_Bus", id: "2615264737" },
+  { username: "stm_Jaune", id: "1465230403" },
+  { username: "stm_nouvelles", id: "329276626" },
+  { username: "stm_Orange", id: "1465166731" },
+  { username: "stm_Verte", id: "1465196582" },
+  { username: "STOGatineau", id: "4308740555" },
+  { username: "stoontransit", id: "312918611" },
+  { username: "takeETSalert", id: "281137182" },
+  { username: "ThinkTransitSJ", id: "236923036" },
+  { username: "transitalerts", id: "87220241" }, // Winnipeg
+  { username: "TransLink", id: "61617150" },
+  { username: "TransLinkNews", id: "912809850" },
+  { username: "TTChelps", id: "500231605" },
+  { username: "TTCnotices", id: "19025957" },
+  { username: "UPexpress", id: "632453857" },
+  { username: "UPexpressFR", id: "2285309340" },
+  { username: "VIA_Rail", id: "17136009" },
+  { username: "VIARailAlerts", id: "1621162227712626689" },
+  { username: "WhistlerTransit", id: "398361424" },
+  { username: "winnipegtransit", id: "87219242" },
+  { username: "YQRTransit", id: "555264926" },
+  { username: "YRTViva", id: "196262641" },
+  // France
+  { username: "SANKEOtrafic", id: "1074397922" },
+  // United States
+  { username: "ancpeoplemover", id: "199002356" },
+  { username: "ctranvancouver", id: "260347897" },
+];
+
+const supportedUsernames = new Set(
+  supportedUsers.map(({ username }) => username),
+);
+const supportedUserIds = new Set(
+  supportedUsers.map(({ id }) => id),
+);
+
+export const hasSupportedUsername = (username) =>
+  supportedUsernames.has(username);
+export const hasSupportedUserId = (id) =>
+  supportedUserIds.has(id);
