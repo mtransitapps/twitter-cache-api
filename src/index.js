@@ -29,8 +29,7 @@ export default {
     const pathnameParts = pathname.split("/");
     logDebug(`[MT]> request url > pathname parts[${pathnameParts.length}]: '${pathnameParts}'.`);
 
-    logDebug(`[MT]> supported usernames: ${supportedUsers.length}`);
-    logDebug(`[MT]> supported user IDs: ${supportedUsers.length}`);
+    logDebug(`[MT]> supported users: ${supportedUsers.length}`);
 
     // 2/users/by/username/{username}
     // 2/users/{id}/tweets
