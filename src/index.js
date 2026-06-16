@@ -51,7 +51,7 @@ export default {
             const userId = pathnameParts[3];
             if (pathnameParts.length > 4 && pathnameParts[4] == "tweets") {
               if (hasSupportedUserId(userId)) {
-                const maxResult = "&max_results=7";
+                const maxResult = "&max_results=10";
                 apiUrl = baseHostUrl + pathname + search + maxResult;
               }
             }
