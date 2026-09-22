@@ -4,6 +4,7 @@ export const supportedUsers = [
   // Canada
   { username: "AirdrieTransit", id: "216814398" },
   { username: "allo_exo", id: "245789900" },
+  { username: "BCFerries", id: "133454567" },
   { username: "BCTransit", id: "67042447" },
   { username: "BikeShareTO", id: "168487515" },
   { username: "BIXImontreal", id: "20085288" },
