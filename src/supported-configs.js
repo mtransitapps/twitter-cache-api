@@ -4,6 +4,7 @@ export const supportedUsers = [
   // Canada
   { username: "AirdrieTransit", id: "216814398" },
   { username: "allo_exo", id: "245789900" },
+  { username: "BCFerries", id: "133454567" },
   { username: "BCTransit", id: "67042447" },
   { username: "BikeShareTO", id: "168487515" },
   { username: "BIXImontreal", id: "20085288" },
@@ -47,6 +48,8 @@ export const supportedUsers = [
   { username: "REM_infoservice", id: "1630300222961201153" },
   { username: "roamtransit", id: "2569916766" },
   { username: "RTCQuebec", id: "253271006" },
+  { username: "RTL_info", id: "543391792" },
+  { username: "RTL_Longueuil", id: "960599371" },
   { username: "STLevis", id: "151572595" },
   { username: "stminfo", id: "54692326" },
   { username: "stm_Bleue", id: "1465203679" },
@@ -57,7 +60,9 @@ export const supportedUsers = [
   { username: "stm_Verte", id: "1465196582" },
   { username: "STOGatineau", id: "4308740555" },
   { username: "stoontransit", id: "312918611" },
+  { username: "TACLLaurentides", id: "2826472729" },
   { username: "takeETSalert", id: "281137182" },
+  { username: "tbaytransit", id: "219745078" },
   { username: "ThinkTransitSJ", id: "236923036" },
   { username: "transitalerts", id: "87220241" }, // Winnipeg
   { username: "TransLink", id: "61617150" },
@@ -68,6 +73,7 @@ export const supportedUsers = [
   { username: "UPexpressFR", id: "2285309340" },
   { username: "VIA_Rail", id: "17136009" },
   { username: "VIARailAlerts", id: "1621162227712626689" },
+  { username: "wegoniagara", id: "703312440" },
   { username: "WhistlerTransit", id: "398361424" },
   { username: "winnipegtransit", id: "87219242" },
   { username: "YQRTransit", id: "555264926" },
@@ -77,6 +83,7 @@ export const supportedUsers = [
   // United States
   { username: "ancpeoplemover", id: "199002356" },
   { username: "ctranvancouver", id: "260347897" },
+  { username: "MyCommTrans", id: "1480124472" },
 ];
 
 const supportedUsernames = new Set(
