@@ -32,6 +32,7 @@ export const supportedUsers = [
   { username: "guelphtransit", id: "30260432" },
   { username: "hfxtransit", id: "389593324" },
   { username: "hsr", id: "753610052892844032" },
+  { username: "hulloferries", id: "1643395214038675456" },
   { username: "KingstonTransit", id: "179762980" },
   { username: "LTCLdnOnt", id: "925424715900116992" },
   { username: "MetrobusTransit", id: "938855094" },
