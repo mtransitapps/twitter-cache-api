@@ -81,6 +81,7 @@ export const supportedUsers = [
   { username: "YRTViva", id: "196262641" },
   // France
   { username: "SANKEOtrafic", id: "1074397922" },
+  { username: "tisseo_officiel", id: "346471660" },
   // United States
   { username: "ancpeoplemover", id: "199002356" },
   { username: "ctranvancouver", id: "260347897" },
